@@ -28,17 +28,17 @@ class StackedBarPlot():
                 
     def initial_sum(self):
         for label in self.labels:
-            x,y = self.get_xy(label)
+            x,y,b = self.get_xyb(label)
             for v1,v2 in zip(x,y):
                 if v1 not in self.sum: self.sum[v1] = 0
                 self.sum[v1] += v2
 
-    def get_xy(self, label):
+    def get_xyb(self, label):
         res = {}
-        for k in self.bottom.keys(): res[k] = 0
-        for k,v in self.dic[label].items():
-            res[k] += v
-        return list(res.keys()),list(res.values()) 
+        for k in (self.bottom.keys()): res[k] = 0
+        for k in (self.dic[label].keys()): res[k] += self.dic[label][k]
+        x = list(res.keys())
+        return x, [res[k] for k in x],[self.bottom[k] for k in x]
             
     ##########################
 
@@ -46,18 +46,19 @@ class StackedBarPlot():
         self.initial()
         if relative: self.initial_sum()
         for label in self.labels:
-            x,y = self.get_xy(label)
-            if relative: y = [v1/s1 for v1,s1 in zip(y,self.sum.values())]
-            plt.bar(x,y,width=self.width,bottom=list(self.bottom.values()),align="edge")
-            for i in range(len(y)):
-                self.bottom[x[i]] += y[i]
+            x,y,bottom = self.get_xyb(label)
+            if relative: y = [v/self.sum[k] for k,v in zip(x,y)]
+            #plt.bar(x,y,width=self.width,bottom=list(self.bottom.values()),align="edge")
+            plt.bar(x,y,width=self.width,bottom=bottom,align="edge")
+            for k,v in zip(x,y):
+                self.bottom[k] += v
 
 
 if __name__ == "__main__":
     a3 = ["a","b","c"]
-    b3 = [(np.random.normal(a*3,2,10000)) for a in range(3)]
+    b3 = [(np.random.normal(a*3,2,1000)) for a in range(3)]
     print("B1")
-    B1 = StackedBarPlot(a3,b3,width=0.1)
+    B1 = StackedBarPlot(a3,b3,width=1)
     plt.subplot(2,1,1)
     B1.plot(relative=False)
     plt.subplot(2,1,2)
