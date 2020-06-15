@@ -49,7 +49,7 @@ class StackedBarPlot():
             x,y,bottom = self.get_xyb(label)
             if relative: y = [v/self.sum[k] for k,v in zip(x,y)]
             #plt.bar(x,y,width=self.width,bottom=list(self.bottom.values()),align="edge")
-            plt.bar(x,y,width=self.width,bottom=bottom,align="edge")
+            plt.bar(x,y,width=self.width,bottom=bottom,align="edge",label=label)
             for k,v in zip(x,y):
                 self.bottom[k] += v
 
