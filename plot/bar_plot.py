@@ -6,7 +6,8 @@ import numpy as np
 def calc_width(t,width):
     if width<1:
         return t*(1/width)//1/(1/width)
-        return t*width//width
+        x = t*width//width
+        return x - x%width
 
 class StackedBarPlot():
     def __init__(self,labels,arrays,width=1):
