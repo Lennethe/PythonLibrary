@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 # テスト用
 import numpy as np
 
+def calc_width(t,width):
+    if width<1:
+        return t*(1/width)//1/(1/width)
+        return t*width//width
+
 class StackedBarPlot():
     def __init__(self,labels,arrays,width=1):
         if len(labels) != len(arrays):
@@ -14,14 +19,16 @@ class StackedBarPlot():
         self.dic = {}
         self.sum = {}
 
-    def initial(self):
+    def initial(self,lower, upper):
         self.bottom = {}
         self.dic = {}
         self.sum = {}
         for label,array in zip(self.labels,self.arrays):
             self.dic[label] = {}
             for value in array:
-                value = value//self.width*self.width
+                if lower != None and value < lower: continue
+                if upper != None and upper <= value: continue                
+                value = calc_width(value,self.value)
                 if value not in self.dic[label]: self.dic[label][value] = 0
                 if value not in self.bottom: self.bottom[value] = 0
                 self.dic[label][value] += 1
@@ -42,8 +49,8 @@ class StackedBarPlot():
             
     ##########################
 
-    def plot(self, relative=False):
-        self.initial()
+    def plot(self, relative=False, lower=None, upper=None):
+        self.initial(lower,upper)
         if relative: self.initial_sum()
         for label in self.labels:
             x,y,bottom = self.get_xyb(label)
@@ -58,9 +65,9 @@ if __name__ == "__main__":
     a3 = ["a","b","c"]
     b3 = [(np.random.normal(a*3,2,1000)) for a in range(3)]
     print("B1")
-    B1 = StackedBarPlot(a3,b3,width=1)
+    B1 = StackedBarPlot(a3,b3,width=2)
     plt.subplot(2,1,1)
-    B1.plot(relative=False)
+    B1.plot(relative=False,lower=1,upper=5)
     plt.subplot(2,1,2)
     B1.plot(relative=True)
     plt.show()
