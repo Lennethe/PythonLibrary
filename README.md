@@ -2,7 +2,7 @@
 
 cheetsheet
 
-'''
+```
 with open(csvfile,encoding="UTF-8") as f:
     for line in f:
         x = re.split('[,\n()]',line)
@@ -22,4 +22,4 @@ with open(csvfile, 'w') as f:
         print(k)
         writer.writerow([k, dic[k]["80s"],dic[k]["90s"],dic[k]["00s"],dic[k]["10s"]])
 
-'''
+```
