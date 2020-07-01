@@ -3,12 +3,8 @@
 cheetsheet
 
 ## 読み込み書き込み
-### csv を読み込む
-<details><summary> ###Qiita(キータ)は、プログラマのための技術情報共有サービスです。</summary>プログラミングに関することをどんどん投稿して、知識を記録、共有しましょう。
-Qiitaに投稿すると、自分のコードやノウハウを見やすい形で残すことができます。
-技術情報はテキストファイルへのメモではなく、タグを付けた文章、シンタックスハイライトされたコードで保存することで初めて再利用可能な知識になる、そうQiitaでは考えています。</details>
 
-
+<details><summary> csv を読み込む </summary>
 ```
 import re 
 import csv
@@ -17,6 +13,10 @@ with open(csvfile,encoding="UTF-8") as f:
     for line in csv.reader(fr):
         x = list(line)
 ```
+
+</details>
+
+
 
 ### csv を書き込む
 ```
