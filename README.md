@@ -2,6 +2,8 @@
 
 cheetsheet
 
+
+
 ## 読み込み書き込み
 
 <details><summary> csv を読み込む </summary>
@@ -19,14 +21,18 @@ with open(csvfile,encoding="UTF-8") as f:
 
 
 
-### csv を書き込む
+<details><summary> csvを書き込む </summary>
+
 ```
 with open(csvfile, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(["year", "80s","90s","00s","10s"])
 ```
 
-### ファイルを読み込む
+</details>
+
+
+<details><summary> ファイルを読み込む </summary>
 
 ```
 with open(file,encoding="UTF-8") as f:
@@ -34,8 +40,14 @@ with open(file,encoding="UTF-8") as f:
         x = re.split('[,\n()]',line)
 ```
 
-### ファイルを書き込む
+</details>
+
+
+<details><summary> ファイルを書き込む </summary>
+
 ```
 with open(file, 'w') as f:
     f.write("\n")
 ```
+
+</details>
