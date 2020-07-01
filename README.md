@@ -13,7 +13,7 @@ import re
 import csv
 
 with open(csvfile,encoding="UTF-8") as f:
-    for line in csv.reader(fr):
+    for line in csv.reader(f):
         x = list(line)
 ```
 
