@@ -51,3 +51,16 @@ with open(file, 'w') as f:
 ```
 
 </details>
+
+
+
+## 距離尺度
+
+<details><summary> コサイン類似度 </summary>
+
+```
+def cos_sim(v1, v2):
+    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+```
+
+</details>
