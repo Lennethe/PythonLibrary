@@ -4,9 +4,8 @@ cheetsheet
 
 
 
-## 読み込み書き込み
 
-<details><summary> 読み込む </summary>
+<details><summary> 読み込み書き込み </summary>
 
 <details><summary> csv を読み込む </summary>
 
