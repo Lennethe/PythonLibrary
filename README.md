@@ -19,7 +19,6 @@ with open(csvfile,encoding="UTF-8") as f:
 ```
 
 </details>
-</details>
 
 
 
@@ -54,6 +53,7 @@ with open(file, 'w') as f:
 
 </details>
 
+</details>
 
 
 ## 距離尺度
