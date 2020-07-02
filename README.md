@@ -6,6 +6,8 @@ cheetsheet
 
 ## 読み込み書き込み
 
+<details><summary> 読み込む </summary>
+
 <details><summary> csv を読み込む </summary>
 
 ```
@@ -17,6 +19,7 @@ with open(csvfile,encoding="UTF-8") as f:
         x = list(line)
 ```
 
+</details>
 </details>
 
 
@@ -64,3 +67,15 @@ def cos_sim(v1, v2):
 ```
 
 </details>
+
+## クラスタリング 
+
+<details><summary> コサイン類似度 </summary>
+
+```
+from sklearn.manifold import TSNE
+TSNE(n_components=2, random_state=0).fit_transform(all_array)
+```
+
+</details>
+
