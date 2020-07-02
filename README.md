@@ -69,7 +69,7 @@ def cos_sim(v1, v2):
 
 ## クラスタリング 
 
-<details><summary> コサイン類似度 </summary>
+<details><summary> TSNE </summary>
 
 ```
 from sklearn.manifold import TSNE
