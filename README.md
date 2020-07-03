@@ -4,6 +4,7 @@ cheetsheet
 
 
 
+## 読み込みとか
 
 <details><summary> 読み込み書き込み </summary>
 
@@ -78,3 +79,23 @@ TSNE(n_components=2, random_state=0).fit_transform(all_array)
 
 </details>
 
+## プロットする時
+
+
+<details><summary> 二次元上にラベルとともにプロットする時 </summary>
+
+```
+from matplotlib.backends.backend_pdf import PdfPages
+import matplotlib.pyplot as plt
+
+for v,label,name in zip(vectors,labels,names):
+    plt.plot(v[0],v[1],'o')
+    print(name,label)
+    plt.annotate(name, xy=(v[0],v[1]))
+plt.show()
+pp = PdfPages("clustering.pdf")
+pp.savefig()
+pp.close()
+```
+
+</details>
