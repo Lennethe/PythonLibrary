@@ -11,8 +11,25 @@ cheetsheet
 </details>
 </details>
 
+### 例外処理
 
-## 入出力関係
+<details><summary> 例外処理 </summary>
+<details><summary> 基本 </summary>
+
+```
+try:
+    hoge
+except NotADirectoryError:
+    print("error")
+
+```
+
+</details>
+</details>
+
+
+
+### 入出力関係
 
 <details><summary> 読み込み書き込み </summary>
 
@@ -77,7 +94,7 @@ os.listdir(os.getcwd())
 </details>
 
 
-## 距離尺度
+### 距離尺度
 
 <details><summary> コサイン類似度 </summary>
 
@@ -88,7 +105,7 @@ def cos_sim(v1, v2):
 
 </details>
 
-## クラスタリング 
+### クラスタリング 
 
 <details><summary> TSNE </summary>
 
@@ -99,7 +116,7 @@ TSNE(n_components=2, random_state=0).fit_transform(all_array)
 
 </details>
 
-## プロットする時
+### プロットする時
 
 
 <details><summary> 二次元上にラベルとともにプロットする時 </summary>
