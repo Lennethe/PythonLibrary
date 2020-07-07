@@ -2,9 +2,17 @@
 
 cheetsheet
 
+<details><summary> テンプレ </summary>
+<details><summary> サブテンプレ </summary>
+
+```
+```
+
+</details>
+</details>
 
 
-## 読み込みとか
+## 入出力関係
 
 <details><summary> 読み込み書き込み </summary>
 
@@ -54,6 +62,18 @@ with open(file, 'w') as f:
 
 </details>
 
+</details>
+
+
+<details><summary> ファイルパス参照 </summary>
+<details><summary> 現在パスにあるフォルダ一覧 </summary>
+
+```
+import os
+os.listdir(os.getcwd())
+```
+
+</details>
 </details>
 
 
