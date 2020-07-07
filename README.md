@@ -91,6 +91,25 @@ os.listdir(os.getcwd())
 ```
 
 </details>
+
+
+<details><summary> 入力されたパス以下にあるファイルを全て参照する </summary>
+
+```
+def get_all_files(path):
+    res = []
+    try:
+        tales = os.listdir(path)
+        for tale in tales:
+            res.extend(get_all_files(path+"/"+tale))
+    except NotADirectoryError:
+        res.append(path)
+    return res
+```
+
+</details>
+
+
 </details>
 
 
