@@ -3,12 +3,12 @@
 cheetsheet
 
 <details><summary> テンプレ </summary>
-    <details><summary> サブテンプレ </summary>
+<details><summary> サブテンプレ </summary>
 
-    ```
-    ```
+```
+```
 
-    </details>
+</details>
 </details>
 
 ### 例外処理
