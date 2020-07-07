@@ -1,9 +1,5 @@
-# ラベルの幅と、ラベルの位置でカラーコードを丁度よく持ってくるライブラリ
-# 例えば0~10のラベルがあって、0の時赤色、10の時に紫を持ってくる。5の時は青色ぐらい
-
 def color_code(x,siz):
   g = int(1280*x/siz)
-  print("1280*",x,"=",1280*x," ",g)
   if 0 <= g and g < 256:
     lef = "ff"
     md = hex(g)[2:4]
@@ -33,3 +29,8 @@ def color_code(x,siz):
   if len(rig) == 1:rig = "0"+rig
   
   return "#"+lef+md+rig
+
+if __name__ == "__main__":
+    x = 10
+    for i in range(x):
+        print(color_code(i,x))
