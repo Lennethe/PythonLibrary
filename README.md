@@ -155,3 +155,36 @@ pp.close()
 ```
 
 </details>
+
+<details><summary> 3次元グラフをアニメーションとして保存したい時 </summary>
+
+```
+from io import BytesIO
+from PIL import Image
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import axes3d
+
+def render_frame(x, y, z, angle):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.plot(x, y, z)
+    ax.view_init(30, angle)
+    plt.close()
+    # 軸の設定
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_xlim(-3, 3)
+    ax.set_ylim(-3, 3)
+    ax.set_zlim(-3, 3)
+    # PIL Image に変換
+    buf = BytesIO()
+    fig.savefig(buf, bbox_inches='tight', pad_inches=0.0)
+    return Image.open(buf)
+
+images = [render_frame(angle) for angle in range(360)]
+images[0].save('output.gif', save_all=True, append_images=images[1:], duration=100, loop=0)
+
+```
+
+</details>
